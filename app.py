@@ -58,7 +58,7 @@ def process_urls(urls_list):
             return
 
     # Text Splitting Engine
-    splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=200)
     split_docs = splitter.split_documents(all_docs)
 
     # Building Vector Embedding and storing inside In-Memory Database
