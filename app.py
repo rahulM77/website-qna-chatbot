@@ -124,7 +124,9 @@ if st.session_state.web_loadd and st.session_state.vector_db is not None:
             context += chunk.page_content + "\n\n"
 
         # Model Inference execution (Using stable production model 2.5 Flash)
-        llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
+        llm = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash", 
+    google_api_key=st.secrets["GOOGLE_API_KEY"]
         
         prompt = f"""
 Give me final answer for my question based on the provided context.
