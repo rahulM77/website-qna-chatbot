@@ -6,7 +6,7 @@ import streamlit as st
 # LangChain Imports
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import InMemoryVectorStore
 
 # Load all defined environment variables from .env
@@ -62,7 +62,7 @@ def process_urls(urls_list):
     split_docs = splitter.split_documents(all_docs)
 
     # Building Vector Embedding and storing inside In-Memory Database
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     vector_store = InMemoryVectorStore.from_documents(
         documents=split_docs, 
         embedding=embeddings
