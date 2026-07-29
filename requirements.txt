@@ -4,3 +4,5 @@ langchain-google-genai
 python-dotenv
 beautifulsoup4
 streamlit
+langchain-huggingface
+sentence-transformers
